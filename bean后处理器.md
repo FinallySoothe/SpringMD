@@ -125,7 +125,7 @@ public class Bean4 {
 
 下面是运行结果
 
-![](.\pic\13.png)
+![](pic\13.png)
 
 可以看到，这些注解并没有去解析，因此解析这些注解是由bean后处理器解决的
 
@@ -149,7 +149,7 @@ context.close();
 
 下面为运行结果，可以看到，bean3中使用@Autoware注解的部分被注入了进来
 
-![](.\pic\14.png)
+![](pic\14.png)
 
 ##  2.CommonAnnotationBeanPostProcessor
 
@@ -170,7 +170,7 @@ context.refresh();
 context.close();
 ```
 
-![](.\pic\15.png)
+![](pic\15.png)
 
 ## 3.ConfigurationPropertiesBindingPostProcessor
 
@@ -193,4 +193,4 @@ System.out.println(context.getBean(Bean4.class));
 context.close();
 ```
 
-![](.\pic\16.png)
+![](pic\16.png)
