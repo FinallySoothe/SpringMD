@@ -6,9 +6,11 @@
 
 ​	Spring的核心，所有的bean都是有BeanFactory类构建，其中定义了相当多的bean的方法，依赖注入，控制反转都有它实现。
 
-![image-20250723230323323](C:\Users\汪\AppData\Roaming\Typora\typora-user-images\image-20250723230323323.png)
+
 
 ## 2 .实现
+
+![](.\pic\image-20250723230323323.png)
 
 ### DefaultListableBeanFactory
 
@@ -57,7 +59,7 @@ public static void main(String[] args) {
 
 运行结果如下：
 
-![](E:\后端\笔记\Spring高级\pic\7.png)
+![](.\pic\7.png)
 
 可以看到在beanfactory中只有config，并没有bean1和bean2，这是因为解析注解并不是由beanfactory所实现的，而是由他的后处理器去解决的，我们尝试在beanfactory中加入后处理器
 
@@ -78,7 +80,7 @@ for (String beanDefinitionName : beanFactory.getBeanDefinitionNames()) {
 
 这样将beanfactory后处理器加入就可以解析config的相关注解了，运行结果如下
 
-![](E:\后端\笔记\Spring高级\pic\8.png)
+![](.\pic\8.png)
 
 但是仅仅是这样还不够，如果我在bean2中注入bean1，那么还是无法获取到bean1，具体代码如下
 
@@ -127,7 +129,7 @@ System.out.println(bean.getBean1());
 
 运行结果如下，@Autoware注解没有生效，没有从bean2中拿到bean1,就是说依赖注入没有生效。
 
-![](E:\后端\笔记\Spring高级\pic\9.png)
+![](.\pic\9.png)
 
 此时我们加入beanfactory后处理器并不能生效，要解决依赖注入，则需要引入bean后处理器来解决。
 
@@ -159,7 +161,7 @@ System.out.println(bean.getBean1());
 
 具体运行结果如下：
 
-![](E:\后端\笔记\Spring高级\pic\10.png)
+![](.\pic\10.png)
 
 此时bean1就可以成功获取了。
 
